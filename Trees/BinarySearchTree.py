@@ -1,3 +1,5 @@
+# from collections import queue
+
 class TreeNode:
     def __init__(self, data):
         self.left_node = None #instance of TreeNode
@@ -48,6 +50,44 @@ class TreeNode:
             res.append(root.data)
         return res
     
+
+    def print_levelorder(self, root):
+        if root is None:
+            return []
+        
+        queue = []
+        result = []
+        queue.append(root)
+        
+        while len(queue) != 0:
+            node = queue.pop(0)
+            print(node.data)
+            result.append(node.data)
+
+            if node.left_node:
+                self.print_levelorder(node.left_node)
+            if node.right_node:
+                self.print_levelorder(node.right_node)
+        return result
+
+    def level_order_traversal(self, root):
+        if root is None:
+            return []
+
+        result = []
+        queue = [root]
+
+        while queue:
+            node = queue.pop(0)
+            result.append(node.data)
+
+            if node.left_node:
+                queue.append(node.left_node)
+            if node.right_node:
+                queue.append(node.right_node)
+
+        return result
+    
 def buildTree(elements):
     root = TreeNode(elements[0])
     for i in range(1,len(elements)):
@@ -62,6 +102,8 @@ if __name__ == '__main__':
     res_inorder = root.print_inorder(root)
     res_preorder = root.print_preorder(root)
     res_postorder = root.print_postorder(root)
+    res_levelorder = root.level_order_traversal(root)
     print("in-order: ",res_inorder)    
     print("pre-order: ",res_preorder)    
     print("post-order: ",res_postorder)    
+    print("level-order: ",res_levelorder)    
