@@ -9,7 +9,7 @@ def insert():
     data = input()
 
     while int(data) != -1:
-        newNode = Node(data)
+        newNode = Node(data) #!!always cretae newNode in loop only
         if head is None:
             head = newNode
             tail = newNode
@@ -21,7 +21,6 @@ def insert():
     return head
 
 def print_list(head):
-    curr = head
     while head != None:
         print(head.data)
         head = head.next
