@@ -161,12 +161,16 @@ def main():
 
     # print("\nDFS:")
     # dfs(initial_state)
+
     # print("\nUCS:")
     # ucs(initial_state)
+    
     # print("\nGreedy Search:")
     # greedy(initial_state)
+    
     # print("\nA* Search:")
     # a_star(initial_state)
+    
     # print("\nHill-Climbing Search:")
     # hill_climbing(initial_state)
 

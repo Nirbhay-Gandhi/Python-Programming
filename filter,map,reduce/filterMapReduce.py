@@ -16,6 +16,7 @@ even_nums = list(filter(lambda n : n%2==0,nums))
 
 doubles1 = list(map(doubles, even_nums))
 doubles = list(map(lambda n : n*2, even_nums))
+print(type(doubles))
 # print(doubles)
 
 sum1 = reduce(add_all,doubles)

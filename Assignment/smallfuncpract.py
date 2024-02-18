@@ -8,37 +8,45 @@ def swap(lst, i, j):
 def is_goal(state):
     return state == sorted(state)
 
-# Helper function to print the state
-def print_state(state):
-    print(','.join(map(str, state)))
+#print the list in the string format
+def print_state(state): #[1,2,3,4]
+    temp = list(map(str, state)) #['1','2','3','4']
+    str_joined = ','.join(temp) 
+    print(str_joined) 
 
-# BFS (Breadth-First Search)
-def bfs(initial_state):
-    visited = set()
-    queue = [initial_state]
+def list_to_str(state): #[1,2,3,4]
+    temp = list(map(str, state)) #['1','2','3','4']
+    str_joined = ','.join(temp) 
+    return str_joined 
+
+# Heuristic function for Greedy and A* search (approximation)
+def heuristic(state):
+    return sum(abs(state[i] - state[i+1]) for i in range(len(state) - 1))
+
+# Greedy Search
+def greedy(initial_state):
+    priority_queue = PriorityQueue()
+    priority_queue.put((heuristic(initial_state), initial_state))
     
-    while queue:
-        state = queue.pop(0)
+    while not priority_queue.empty():
+        _, state = priority_queue.get()
         print_state(state)
         
         if is_goal(state):
             return
         
-        visited.add(tuple(state))
         for i in range(len(state) - 1):
             next_state = state[:]
             swap(next_state, i, i + 1)
-            if tuple(next_state) not in visited:
-                queue.append(next_state)
-
+            priority_queue.put((heuristic(next_state), next_state))
 
 # Main function to parse input and call search algorithms
 def main():
     input_str = input().strip()  # Read the input string
     numbers = input_str.split()  # Split the input string by spaces
     initial_state = [float(num) for num in numbers]  # Convert the numbers to floats
-    print("BFS:")
-    bfs(initial_state)
+
+    greedy(initial_state)
 
 
 if __name__ == "__main__":
