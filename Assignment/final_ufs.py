@@ -12,6 +12,15 @@ def list_to_str(lst):
     str_joined = ','.join(temp) 
     return str_joined
 
+"""
+- uniform cost search me hum goal state par reach karne ke liye hamesha wahi path use karte hai,
+jiska path cost sabse jyda kam hota hai
+- blindly jo action hume immediate min cost deta hai, hum usko choose karte hai
+
+-> how we'll find the optimal cost path? 
+we attch a priority with every state. that priority will act as a action cost required from one state to 
+next state
+"""
 def ucs(initial_state):
     visited = set()
     priority_queue = PriorityQueue()
