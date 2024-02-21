@@ -21,10 +21,10 @@ for i in range(len(l)-1):
     print(f"i:{i}, i+1:{i+1}, (l[{i}]-l[{i+1}]): {l[i]-l[i+1]}")
 
 def heuristic(state):
-    print(f"state: {state}")
+    # print(f"state: {state}")
     sorted_sate = state[:]
     sorted_sate.sort()
-    print(f"sorted_state: {sorted_sate}")
+    # print(f"sorted_state: {sorted_sate}")
     heuristic_sum = 0 
     for element in state:
         # print(f"sorted_sate.index({sorted_sate[i]}) - state.index(state[i])") 
@@ -34,3 +34,21 @@ def heuristic(state):
 
 l = [12,17,14]#[12,13,14,10]
 print(heuristic(l))
+
+def cumm_heuristic(state):
+    # print("state in cummm ",state)
+    # heu = []
+    # for l in state:
+    #     heu.append(heuristic(l))
+    # return heu
+    return heuristic(state)
+
+def best_state(neighbours):
+    heuristics = list(map(cumm_heuristic,neighbours))
+    # print("heu: ", heuristics)
+    # min_heuristic = min(heuristics)
+    min_index = heuristics.index(min(heuristics)) 
+    return neighbours[min_index]
+
+l = [4,5,7,9,10]
+print(best_state([[1,2,3],[3,1,4],[6,2,1]]))
