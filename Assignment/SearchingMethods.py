@@ -164,7 +164,7 @@ class InformedSearchMethods:
 
 
     """
-    proceed ahed with the best heuristic only
+    proceed ahed with the best heuristic neighbor only
     """
     # Hill-Climbing Search
     def Hill_climb_search(state):

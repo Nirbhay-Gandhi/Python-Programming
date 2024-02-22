@@ -1,10 +1,12 @@
 from SearchingMethods import InformedSearchMethods as ISM
 from SearchingMethods import UnInformedSearchMethods as USM
+from HelperFunctions import HelperFunc as Hf
 
 choice = 0
 str_nums = input("Enter Array: ")  
 nums = str_nums.split()  
 start_state = [float(num) for num in nums]  
+start_state = Hf.remove_duplicates(start_state)
 
 while(choice != -1):
     print("Searching Methods")

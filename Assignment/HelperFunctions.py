@@ -1,4 +1,3 @@
-from queue import PriorityQueue
 
 class HelperFunc:
 
@@ -34,3 +33,13 @@ class HelperFunc:
         heuristics = list(map(HelperFunc.cumm_heuristic,neighbours))
         min_index = heuristics.index(min(heuristics)) 
         return neighbours[min_index]
+    
+    def remove_duplicates(mylist):
+        # l = [2,3,5,2,1]
+        s = set()
+        newl = []
+        for element in mylist:
+            if element not in s:
+                newl.append(element)
+                s.add(element)
+        return newl
