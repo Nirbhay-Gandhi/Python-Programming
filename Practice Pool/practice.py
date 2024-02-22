@@ -176,3 +176,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+def sayHi(num):
+    print("hi ", num)
+num = 4
+match num:
+    case 1:
+        print("case 1")
+        sayHi(1)
+    case 2:
+        print("case 2")
+        sayHi(2)
+    case 3:
+        print("case 3")
+        sayHi(3)
+    case _:
+        print("generic")
+    
