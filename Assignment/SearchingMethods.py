@@ -1,7 +1,7 @@
 from HelperFunctions import HelperFunc as Hf
 from queue import PriorityQueue
 
-class InformedSearchMethods:
+class UnInformedSearchMethods:
     def Breadth_first_search(initial_state):
         print("Breadth First Search")
         visited = set()
@@ -97,7 +97,7 @@ class InformedSearchMethods:
         return iteration
 
 
-class UnInformedSearchMethods:
+class InformedSearchMethods:
     def Greedy_best_first_search(initial_state):
         print("Greedy Best First Search")
         visited = set()
@@ -192,17 +192,17 @@ def main():
     nums = str_nums.split()  
     start_state = [float(num) for num in nums] 
     print("Breadth First Search:")
-    InformedSearchMethods.Breadth_first_search(start_state)
+    UnInformedSearchMethods.Breadth_first_search(start_state)
     print("Depth First Search:")
-    InformedSearchMethods.Depth_first_search(start_state)
+    UnInformedSearchMethods.Depth_first_search(start_state)
     print("Uniform First Search:")
-    InformedSearchMethods.Uniform_cost_search(start_state)
+    UnInformedSearchMethods.Uniform_cost_search(start_state)
     print("Greedy Best First Search:")
-    UnInformedSearchMethods.Greedy_best_first_search(start_state)
+    InformedSearchMethods.Greedy_best_first_search(start_state)
     print("A* Search:")
-    UnInformedSearchMethods.A_star_search(start_state)
+    InformedSearchMethods.A_star_search(start_state)
     print("Hill Climb Search:")
-    UnInformedSearchMethods.Hill_climb_search(start_state)
+    InformedSearchMethods.Hill_climb_search(start_state)
 
 
 if __name__ == "__main__":

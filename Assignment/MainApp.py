@@ -20,17 +20,17 @@ while(choice != -1):
     
     match choice:
         case 1:
-            ISM.Breadth_first_search(start_state)
+            USM.Breadth_first_search(start_state)
         case 2:
-            ISM.Depth_first_search(start_state)
+            USM.Depth_first_search(start_state)
         case 3:
-            ISM.Uniform_cost_search(start_state)
+            USM.Uniform_cost_search(start_state)
         case 4:
-            USM.Greedy_best_first_search(start_state)
+            ISM.Greedy_best_first_search(start_state)
         case 5:
-            USM.A_star_search(start_state)
+            ISM.A_star_search(start_state)
         case 6:
-            USM.Hill_climb_search(start_state)
+            ISM.Hill_climb_search(start_state)
         case _:
             print("Invalid choice")
 
